@@ -27,6 +27,12 @@ class SetOfDetection:
         for detection in self.set:
             detection.display()
 
+    def getSize(self):
+        return len(self.set)
+
+    def getDetection(self, i):
+        return self.set[i]
+
 class Detection:
     def __init__(self):
         self.dictionary = {}
@@ -37,15 +43,16 @@ class Detection:
         self.dictionary["bb_height"] = 0.0
         self.dictionary["bb_width"] = 0.0
 
-    def fill(self, frame, bb_left, bb_top, bb_width, bb_height):
-        self.dictionary["frame"] = frame
-        self.dictionary["bb_left"] = bb_left
-        self.dictionary["bb_top"] = bb_top
-        self.dictionary["bb_height"] = bb_height
-        self.dictionary["bb_width"] = bb_width
+    def fill(self, frame, id, bb_left, bb_top, bb_width, bb_height):
+        self.dictionary["frame"] = int(frame)
+        self.dictionary["id"] = int(id)
+        self.dictionary["bb_left"] = float(bb_left)
+        self.dictionary["bb_top"] = float(bb_top)
+        self.dictionary["bb_height"] = float(bb_height)
+        self.dictionary["bb_width"] = float(bb_width)
 
     def assignId(self, id):
-        self.dictionary["id"] = id
+        self.dictionary["id"] = int(id)
 
     def get(self):
         return self.dictionary

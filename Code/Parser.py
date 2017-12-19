@@ -36,7 +36,7 @@ class Parser:
                 detection = Detection()
                 tab = line.split(",")
             #In line :frame, id, bb_left, bb_top, bb_width, bb_height, x, y, z
-                detection.fill(tab[0], tab[2], tab[3], tab[4], tab[5])
+                detection.fill(tab[0], tab[1], tab[2], tab[3], tab[4], tab[5])
                 setOfDetection.append(detection)
             return setOfDetection
         return None
